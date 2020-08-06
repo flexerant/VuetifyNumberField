@@ -1,29 +1,12 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
-
-import HelloWorld from './components/HelloWorld.vue';
-import Footer from './components/Footer.vue';
-import HamburgerMenu from './components/HamburgerMenu.vue';
-import AnimatedLoading from './components/AnimatedLoading.vue';
+import VNumberField from './components/VNumberField.vue';
 
 Vue.use(Vuetify);
 
-const Components = {
-  HelloWorld,
-  Footer,
-  HamburgerMenu,
-  AnimatedLoading,
-};
+const Components = { VNumberField };
 
-Vue.component('HelloWorld', HelloWorld);
-Vue.component('Footer', Footer);
-Vue.component('HamburgerMenu', HamburgerMenu);
-Vue.component('AnimatedLoading', AnimatedLoading);
+Vue.component('VNumberField', VNumberField);
 
-export { HelloWorld };
-export { Footer };
-export { HamburgerMenu };
-export { AnimatedLoading };
-
-// Export the library as a plugin
+export { VNumberField };
 export default Components;
