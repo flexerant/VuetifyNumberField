@@ -1,23 +1,10 @@
-<!-- <p float="left">
-    <img src="https://cdn.auth0.com/blog/vuejs/vue-logo.png" alt="Vue.js" width="100"/>
-    <img src="https://www.saashub.com/images/app/service_logos/8/20ef90d04b35/large.png?1527741609" alt="Vuetify.js" width="100"/>
-    <img src="https://opencollective-production.s3-us-west-1.amazonaws.com/011fc620-4cb2-11e9-a51a-fdbb10b4cabb.png" alt="Storybook" width="100"/>
-</p> -->
+<p float="left">
+ <a href="https://www.npmjs.com/package/flexerant-vuetify-number-field" alt="flexerant-vuetify-number-field on npm">
+  <img src="https://img.shields.io/npm/v/flexerant-vuetify-number-field" alt="npm version icon"/>
+  </a>
+</p>
 
 # Vuetify number field
-
-![npm](https://img.shields.io/npm/v/flexerant-vuetify-number-field)
-
-<!-- ![GitHub issues](https://img.shields.io/github/issues/mitevpi/vuetify-component-lib-template)
-![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/mitevpi/vuetify-component-lib-template)
-![GitHub contributors](https://img.shields.io/github/contributors/mitevpi/vuetify-component-lib-template)
-
-![GitHub last commit](https://img.shields.io/github/last-commit/mitevpi/vuetify-component-lib-template)
-![GitHub Release Date](https://img.shields.io/github/release-date/mitevpi/vuetify-component-lib-template)
-
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mitevpi/vuetify-component-lib-template)
-![GitHub repo size](https://img.shields.io/github/repo-size/mitevpi/vuetify-component-lib-template)
-![GitHub](https://img.shields.io/github/license/mitevpi/vuetify-component-lib-template) -->
 
 A numeric field component built from [Vuetify's](https://vuetifyjs.com/en/) [`v-text-field`](https://vuetifyjs.com/en/components/text-fields/) component.
 
