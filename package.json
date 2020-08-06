@@ -16,7 +16,7 @@
   "browser": "dist/flexerant-vuetify-number-field.umd.min.js",
   "files": [
     "src/components",
-    "src/styles",
+    "src/utils",
     "dist",
     "LICENSE",
     "README.md"
