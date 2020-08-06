@@ -46,7 +46,7 @@ export default Vue.extend({
       validator(value) {
         return ['none', 'currency', 'percent'].indexOf(value) !== -1;
       },
-      default: 'currency',
+      default: 'none',
     },
   },
   data: () => ({
@@ -87,7 +87,6 @@ export default Vue.extend({
       return 1;
     },
     textValue() {
-      console.log('locale', this.locale);
       return localization.formatNumber(
         Number(this.numberValue),
         Number(this.decimalPlaces),

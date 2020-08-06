@@ -1,8 +1,8 @@
 {
   "name": "flexerant-vuetify-number-field",
-  "version": "0.0.0",
-  "description": "Modular, reusable components and styles for use in web applications.",
-  "private": true,
+  "version": "1.0.5",
+  "description": "A vuetify based numeric field component.",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name flexerant-vuetify-number-field src/index.js",
@@ -16,7 +16,7 @@
   "browser": "dist/flexerant-vuetify-number-field.umd.min.js",
   "files": [
     "src/components",
-    "src/styles",
+    "src/utils",
     "dist",
     "LICENSE",
     "README.md"
