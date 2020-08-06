@@ -46,7 +46,7 @@ export default Vue.extend({
       validator(value) {
         return ['none', 'currency', 'percent'].indexOf(value) !== -1;
       },
-      default: 'currency',
+      default: 'none',
     },
   },
   data: () => ({
