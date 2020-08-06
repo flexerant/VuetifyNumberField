@@ -17,23 +17,19 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/mitevpi/vuetify-component-lib-template)
 ![GitHub](https://img.shields.io/github/license/mitevpi/vuetify-component-lib-template) -->
 
-A numeric field component built from [Vuetify's](https://vuetifyjs.com/en/) [text field](https://vuetifyjs.com/en/components/text-fields/) component.
+A numeric field component built from [Vuetify's](https://vuetifyjs.com/en/) [`v-text-field`](https://vuetifyjs.com/en/components/text-fields/) component.
 
-## Usage
 
-## How to Import (The Built Library)
+## Installation
 
-### Importing Components
+### Global
 
-#### Global
-
-Importing the single file .vue components directly. (If using Vue CLI 3 with Babel or TypeScript, it's recommended that you import its src directory. This will minimize the size of your application by preventing duplicate or unnecessary polyfills.)
-
-Importing the source `.vue` file:
+Importing the source `.vue` file (note: The [`numeral`](https://www.npmjs.com/package/numeral) package may also need to be installed):
 
 ```js
 // main.js
-import VNumberField from 'flexerant-vuetify-number-field/src/components';
+import VNumberField from 'flexerant-vuetify-number-field/src/components/VNumberField';
+
 Vue.use(VNumberField);
 ```
 
@@ -41,81 +37,59 @@ Importing the bundled `.js`:
 
 ```js
 // main.js
-import VNumberField from 'flexerant-vuetify-number-field';
+import { VNumberField } from 'flexerant-vuetify-number-field';
+
 Vue.use(VNumberField);
 ```
 
-#### In-Component Import
+### In-Component Import
 
-For single use in a component or small set of components.
+Importing the source `.vue` file (note: The [`numeral`](https://www.npmjs.com/package/numeral) package may also need to be installed):
 
-Importing the source `.vue` file:
 
 ```js
 // component.vue
 import VNumberField from "flexerant-vuetify-number-field/src/components/VNumberField";
 
 export default {
-  name: "Tester",
   components: {
     VNumberField
   }
 }
-</script>
 ```
 
-Importing the bundled `.js` components individually.
+Importing the bundled `.js`:
 
 ```js
 // component.vue
 import { VNumberField } from "flexerant-vuetify-number-field";
 
 export default {
-  name: "Tester",
   components: {
     VNumberField
   }
 }
-</script>
-```
-### Components
-
-Components can be found in the [src/components](src/components) folder
-in the root directory of this repository.
-
-## Developer Documentation
-
-### Building
-
-In order to contribute to this project, fork/clone this repository
-locally. After cloning is completed, install the dependencies using `npm i`.
-
-#### Preview
-
-You can start a development server by running the commands below in the
-root directory of this repository. Once the development server is
-running, view localhost:8080 using Chrome and
-[Vue.js Dev Tools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en).
-This is a preview application and will allow you to visualize the
-components/styles that will ultimately be compiled to the design system
-library.
-
-```cmd
-npm run serve
 ```
 
-#### Library
+## Usage
 
-To build the project as a library, run `npm run build` in the root directory of the repository.
+The component uses Vuetify's `text-field` [API](https://vuetifyjs.com/en/components/text-fields/#api), therfore the same props, slots, events, and functions can be used.
 
-## Commands
+```html
 
-The following commands are used to develop the project:
+<v-number-field /> 
 
-1. `npm run build` - Build the package distribution bundle.
-2. `npm run serve` - Start a development server with live-reloading on
-   changes. (Used for previewing individual components.)
-3. `npm run lint` - Lint code using ESLint and Vue, AirBnB, and Prettier configs.
-4. `npm test` - Run unit tests for the individual components in the package.
-5. `npm run release` - Runs tests, build, and version incrementing
-   procedures.
+```
+
+Additional props are listed below;
+
+| Name             | Description                                                           | Type                              | Default                 |
+| ---              | ---                                                                   | ---                               | ---                     |
+| `format`         | Prepends/appends the appropriate symbol based on the selected locale. | 'none' \| 'currency' \| 'percent' | 'none'                  |
+| `min`            | The minimum allowed value. Values below it will be discarded.         | number                            | Number.MIN_SAFE_INTEGER |
+| `max`            | The maximum allowed value. Values above it will be discarded.         | number                            | Number.MAX_SAFE_INTEGER |
+| `decimal-places` | The number of decimal places to display. Applies to the model also.   | number                            | 2                       |
+| `step`           | The step used when increment/decrement buttons are clicked.           | number                            | 0.1                     |
+| `locale`         | The locale used for the currency and percent symbols.                 | number                            | 0.1                     |
+
+Any locale supported by [`numeral`](https://www.npmjs.com/package/numeral) can be used.
