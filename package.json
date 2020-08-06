@@ -1,7 +1,7 @@
 {
   "name": "flexerant-vuetify-number-field",
-  "version": "2.0.0",
-  "description": "Modular, reusable components and styles for use in web applications.",
+  "version": "0.0.0",
+  "description": "A vuetify based numeric field component.",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
