@@ -6,6 +6,8 @@
 
 # Vuetify number field
 
+![npm](https://img.shields.io/npm/v/flexerant-vuetify-number-field)
+
 <!-- ![GitHub issues](https://img.shields.io/github/issues/mitevpi/vuetify-component-lib-template)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/mitevpi/vuetify-component-lib-template)
 ![GitHub contributors](https://img.shields.io/github/contributors/mitevpi/vuetify-component-lib-template)
