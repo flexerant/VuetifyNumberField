@@ -1,6 +1,6 @@
 {
   "name": "flexerant-vuetify-number-field",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A vuetify based numeric field component.",
   "private": false,
   "scripts": {
