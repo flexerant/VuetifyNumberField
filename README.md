@@ -90,6 +90,6 @@ Additional props are listed below;
 | `max`            | The maximum allowed value. Values above it will be discarded.         | number                            | Number.MAX_SAFE_INTEGER |
 | `decimal-places` | The number of decimal places to display. Applies to the model also.   | number                            | 2                       |
 | `step`           | The step used when increment/decrement buttons are clicked.           | number                            | 0.1                     |
-| `locale`         | The locale used for the currency and percent symbols.                 | number                            | 0.1                     |
+| `locale`         | The locale used for the currency and percent symbols.                 | number                            | 'en'                    |
 
 Any locale supported by [`numeral`](https://www.npmjs.com/package/numeral) can be used.
