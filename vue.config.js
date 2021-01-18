@@ -1,11 +1,12 @@
 module.exports = {
-  css: {
-    extract: true,
-    // loaderOptions: {
-    //   scss: {
-    //     additionalData: `@import "@/styles/index.scss";`,
-    //   },
-    // },
-  },
   transpileDependencies: ['vuetify'],
+  configureWebpack: {
+    ...(process.env.NODE_ENV === 'production'
+      ? {
+          externals: {
+            'vuetify/lib': 'vuetify/lib',
+          },
+        }
+      : {}),
+  },
 };

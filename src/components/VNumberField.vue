@@ -27,7 +27,7 @@
   </span>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import { VTextField } from 'vuetify/lib';
 import * as localization from '../utils/localizations';
@@ -56,11 +56,17 @@ export default Vue.extend({
   computed: {
     prefix() {
       if (this.format === 'currency') {
-        if (localization.getCurrencySymbolPosition(this.locale) === 'start') {
+        if (
+          localization.getCurrencySymbolPosition(this.locale as string) ===
+          'start'
+        ) {
           return localization.getCurrencySymbol(this.locale);
         }
       } else if (this.format === 'percent') {
-        if (localization.getPercentSymbolPosition(this.locale) === 'start') {
+        if (
+          localization.getPercentSymbolPosition(this.locale as string) ===
+          'start'
+        ) {
           return localization.getPercentSymbol(this.locale);
         }
       }
@@ -69,23 +75,28 @@ export default Vue.extend({
     },
     suffix() {
       if (this.format === 'currency') {
-        if (localization.getCurrencySymbolPosition(this.locale) === 'end') {
+        if (
+          localization.getCurrencySymbolPosition(this.locale as string) ===
+          'end'
+        ) {
           return localization.getCurrencySymbol(this.locale);
         }
       } else if (this.format === 'percent') {
-        if (localization.getPercentSymbolPosition(this.locale) === 'end') {
+        if (
+          localization.getPercentSymbolPosition(this.locale as string) === 'end'
+        ) {
           return localization.getPercentSymbol(this.locale);
         }
       }
 
       return undefined;
     },
-    factor() {
-      if (this.format === 'percent') {
-        return 100;
-      }
-      return 1;
-    },
+    // factor() {
+    //   if (this.format === 'percent') {
+    //     return 100;
+    //   }
+    //   return 1;
+    // },
     textValue() {
       return localization.formatNumber(
         Number(this.numberValue),
@@ -96,30 +107,30 @@ export default Vue.extend({
   },
   watch: {
     min() {
-      this.numberValue = this.adjustNumber(this.value * this.factor);
-      this.$emit('input', this.numberValue / this.factor);
+      this.numberValue = this.adjustNumber(this.value);
+      this.$emit('input', this.numberValue);
     },
     max() {
-      this.numberValue = this.adjustNumber(this.value * this.factor);
-      this.$emit('input', this.numberValue / this.factor);
+      this.numberValue = this.adjustNumber(this.value);
+      this.$emit('input', this.numberValue);
     },
     decimalPlaces() {
-      this.numberValue = this.adjustNumber(this.value * this.factor);
-      this.$emit('input', this.numberValue / this.factor);
+      this.numberValue = this.adjustNumber(this.value);
+      this.$emit('input', this.numberValue);
     },
     format() {
-      this.numberValue = this.adjustNumber(this.value * this.factor);
+      this.numberValue = this.adjustNumber(this.value);
     },
   },
   mounted() {
-    this.numberValue = this.adjustNumber(this.value * this.factor);
-    this.$emit('input', this.numberValue / this.factor);
+    this.numberValue = this.adjustNumber(this.value);
+    this.$emit('input', this.numberValue);
   },
   methods: {
-    adjustNumber(num) {
+    adjustNumber(num: number) {
       let adustedNumber = Number(num.toFixed(this.decimalPlaces));
-      const minimum = Number(this.min) * Number(this.factor);
-      const maximum = Number(this.max) * Number(this.factor);
+      const minimum = Number(this.min);
+      const maximum = Number(this.max);
 
       if (Number.isNaN(adustedNumber)) adustedNumber = minimum;
 
@@ -128,18 +139,18 @@ export default Vue.extend({
 
       return adustedNumber;
     },
-    toggleEdit(value) {
+    toggleEdit(value: boolean) {
       this.editing = value;
     },
-    handleChange(e) {
+    handleChange(e: string) {
       this.numberValue = this.adjustNumber(Number(e));
-      this.$emit('input', this.numberValue / this.factor);
+      this.$emit('input', this.numberValue);
     },
-    handleKeyUp(e) {
+    handleKeyUp(e: any) {
       const { keyCode } = e;
 
       if (keyCode === 13) {
-        this.$refs.input.blur();
+        (this.$refs.input as any).blur();
       }
     },
   },

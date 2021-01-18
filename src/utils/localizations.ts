@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-function getLocaleData(locale) {
+function getLocaleData(locale: string) {
   let err = true;
   const messages = [];
   let data;
@@ -40,52 +40,64 @@ function getLocaleData(locale) {
   return data;
 }
 
-function getCurrencyNumberFormatParts(locale) {
+function getCurrencyNumberFormatParts(locale: string) {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'XXX',
   }).formatToParts(1000);
 }
 
-function getPercentNumberFormatParts(locale) {
+function getPercentNumberFormatParts(locale: string) {
   return new Intl.NumberFormat(locale, { style: 'percent' }).formatToParts(100);
 }
 
-function getCurrencySymbolIndex(locale) {
+function getCurrencySymbolIndex(locale: string) {
   const parts = getCurrencyNumberFormatParts(locale);
   return parts.findIndex((x) => x.type === 'currency');
 }
 
-function getPercentSymbolIndex(locale) {
+function getPercentSymbolIndex(locale: string) {
   const parts = getPercentNumberFormatParts(locale);
   return parts.findIndex((x) => x.type === 'percentSign');
 }
 
-export function getCurrencySymbolPosition(locale) {
+export function getCurrencySymbolPosition(locale: string) {
   if (getCurrencySymbolIndex(locale) === 0) {
     return 'start';
   }
   return 'end';
 }
 
-export function getPercentSymbolPosition(locale) {
+export function getPercentSymbolPosition(locale: string) {
   if (getPercentSymbolIndex(locale) === 0) {
     return 'start';
   }
   return 'end';
 }
 
-export function getCurrencySymbol(locale) {
-  return getLocaleData(locale).currency.symbol;
+export function getCurrencySymbol(locale: string) {
+  const localeData = getLocaleData(locale);
+
+  if (localeData) {
+    return localeData.currency.symbol;
+  }
+
+  return '$';
+
+  // return getLocaleData(locale).currency.symbol;
 }
 
-export function getPercentSymbol(locale) {
+export function getPercentSymbol(locale: string) {
   const parts = getPercentNumberFormatParts(locale);
 
   return parts[getPercentSymbolIndex(locale)].value;
 }
 
-export function formatNumber(num, decimalPlaces, locale) {
+export function formatNumber(
+  num: number,
+  decimalPlaces: number,
+  locale: string
+) {
   return num.toLocaleString(locale, {
     minimumFractionDigits: decimalPlaces,
     maximumFractionDigits: decimalPlaces,
