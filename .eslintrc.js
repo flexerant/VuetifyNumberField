@@ -1,16 +1,20 @@
 module.exports = {
   root: true,
+
   env: {
     node: true,
     jest: true,
   },
+
   plugins: ['prettier'],
-  extends: [
-    'plugin:vue/recommended',
-    'airbnb-base',
-    'plugin:prettier/recommended',
-    'eslint:recommended',
-  ],
+
+  // extends: [
+  //   'plugin:vue/recommended',
+  //   'airbnb-base',
+  //   'plugin:prettier/recommended',
+  //   'eslint:recommended',
+  // ],
+
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'no-console': 'off',
@@ -33,8 +37,17 @@ module.exports = {
       },
     ],
   },
+
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
+
+  extends: [
+    'plugin:vue/recommended',
+    // 'airbnb-base',
+    'plugin:prettier/recommended',
+    'eslint:recommended',
+    '@vue/typescript',
+  ],
 };

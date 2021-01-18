@@ -7,7 +7,6 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name flexerant-vuetify-number-field src/index.js",
     "lint": "vue-cli-service lint --fix",
-    "release": "standard-version",
     "test": "vue-cli-service test:unit"
   },
   "main": "dist/flexerant-vuetify-number-field.common.js",
