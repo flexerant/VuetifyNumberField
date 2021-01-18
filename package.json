@@ -1,27 +1,18 @@
 {
   "name": "flexerant-vuetify-number-field",
-  "version": "1.0.5",
-  "description": "A vuetify based numeric field component.",
+  "version": "1.1.1",
   "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/flexerant/VuetifyNumberField.git"
-  },
-  "bugs": {
-    "url": "https://github.com/flexerant/VuetifyNumberField/issues"
-  },
-  "homepage": "https://github.com/flexerant/VuetifyNumberField",
+  "description": "A vuetify based numeric field component.",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name flexerant-vuetify-number-field src/index.js",
     "lint": "vue-cli-service lint --fix",
-    "test": "vue-cli-service test:unit",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "vue-cli-service test:unit"
   },
   "main": "dist/flexerant-vuetify-number-field.common.js",
-  "unpkg": "dist/flexerant-vuetify-number-field.umd.min.js",
-  "cdn": "dist/flexerant-vuetify-number-field.umd.min.js",
   "browser": "dist/flexerant-vuetify-number-field.umd.min.js",
+  "unpkg": "dist/flexerant-vuetify-number-field.umd.min.js",
   "files": [
     "src/components",
     "src/utils",
@@ -30,9 +21,9 @@
     "README.md"
   ],
   "dependencies": {
+    "numeral": "^2.0.6",
     "vue": "^2.6.11",
-    "vuetify": "^2.x",
-    "numeral": "^2.0.6"
+    "vuetify": "^2.x"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -42,10 +33,16 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/vue": "^5.3.19",
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-plugin-unit-jest": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@types/jest": "^24.0.19",
+    "@types/numeral": "0.0.29",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-plugin-typescript": "^4.5.10",
+    "@vue/cli-plugin-unit-jest": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
@@ -67,8 +64,18 @@
     "style-loader": "^1.2.1",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
-    "vue-cli-plugin-vuetify": "^2.0.7",
+    "typescript": "~3.9.3",
+    "vue-cli-plugin-vuetify": "^2.0.9",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/flexerant/VuetifyNumberField/issues"
+  },
+  "cdn": "dist/flexerant-vuetify-number-field.umd.min.js",
+  "homepage": "https://github.com/flexerant/VuetifyNumberField",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flexerant/VuetifyNumberField.git"
   }
 }
