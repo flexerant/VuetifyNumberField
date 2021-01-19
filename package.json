@@ -17,7 +17,7 @@
   "files": [
     "dist/*",
     "v-number-field.d.ts",
-    "src/**/*.vue"
+    "src/**/*.*"
   ],
   "dependencies": {},
   "devDependencies": {
