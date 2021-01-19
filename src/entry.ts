@@ -1,7 +1,7 @@
-import _Vue, { PluginFunction, VueConstructor } from 'vue';
+import _Vue, { PluginFunction, VueConstructor } from "vue";
 
 // Import vue component
-import component from '@/v-number-field.vue';
+import component from "@/VNumberField.vue";
 
 // Define typescript interfaces for autoinstaller
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,10 +13,12 @@ interface InstallableComponent extends VueConstructor<_Vue> {
 }
 
 // install function executed by Vue.use()
-const install: InstallFunction = function installVNumberField(Vue: typeof _Vue) {
+const install: InstallFunction = function installVNumberField(
+  Vue: typeof _Vue
+) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component('VNumberField', component);
+  Vue.component("v-number-field", component);
 };
 
 // Create module definition for Vue.use()
@@ -27,11 +29,11 @@ const plugin = {
 // To auto-install on non-es builds, when vue is found
 // eslint-disable-next-line no-redeclare
 /* global window, global */
-if ('false' === process.env.ES_BUILD) {
+if ("false" === process.env.ES_BUILD) {
   let GlobalVue = null;
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     GlobalVue = window.Vue;
-  } else if (typeof global !== 'undefined') {
+  } else if (typeof global !== "undefined") {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     GlobalVue = (global as any).Vue;
   }
@@ -43,7 +45,7 @@ if ('false' === process.env.ES_BUILD) {
 // Inject install function into component - allows component
 // to be registered via Vue.use() as well as Vue.component()
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-(component as any as InstallableComponent).install = install;
+((component as any) as InstallableComponent).install = install;
 
 // Export component by default
 export default component;

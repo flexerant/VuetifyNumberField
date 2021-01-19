@@ -28,14 +28,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { VTextField } from 'vuetify/lib';
-import * as localization from '@/utils/localizations';
+import Vue from "vue";
+import * as localization from "@/utils/localizations";
+import { VTextField } from "vuetify/lib";
+import useMethods, { Format } from "./VNumberField.vue.methods";
+
+const methods = useMethods();
 
 export default Vue.extend({
   components: { VTextField },
   props: {
-    locale: { type: String, default: 'en' },
+    locale: { type: String, default: "en" },
     value: { type: Number, required: true },
     decimalPlaces: { type: Number, default: 2 },
     step: { type: Number, default: 0.01 },
@@ -44,9 +47,9 @@ export default Vue.extend({
     format: {
       type: String,
       validator(value) {
-        return ['none', 'currency', 'percent'].indexOf(value) !== -1;
+        return ["none", "currency", "percent"].indexOf(value) !== -1;
       },
-      default: 'none',
+      default: "none",
     },
   },
   data: () => ({
@@ -55,48 +58,11 @@ export default Vue.extend({
   }),
   computed: {
     prefix() {
-      if (this.format === 'currency') {
-        if (
-          localization.getCurrencySymbolPosition(this.locale as string) ===
-          'start'
-        ) {
-          return localization.getCurrencySymbol(this.locale);
-        }
-      } else if (this.format === 'percent') {
-        if (
-          localization.getPercentSymbolPosition(this.locale as string) ===
-          'start'
-        ) {
-          return localization.getPercentSymbol(this.locale);
-        }
-      }
-
-      return undefined;
+      return methods.prefix(this.format as Format, this.locale);
     },
     suffix() {
-      if (this.format === 'currency') {
-        if (
-          localization.getCurrencySymbolPosition(this.locale as string) ===
-          'end'
-        ) {
-          return localization.getCurrencySymbol(this.locale);
-        }
-      } else if (this.format === 'percent') {
-        if (
-          localization.getPercentSymbolPosition(this.locale as string) === 'end'
-        ) {
-          return localization.getPercentSymbol(this.locale);
-        }
-      }
-
-      return undefined;
+      return methods.suffix(this.format as Format, this.locale);
     },
-    // factor() {
-    //   if (this.format === 'percent') {
-    //     return 100;
-    //   }
-    //   return 1;
-    // },
     textValue() {
       return localization.formatNumber(
         Number(this.numberValue),
@@ -108,15 +74,15 @@ export default Vue.extend({
   watch: {
     min() {
       this.numberValue = this.adjustNumber(this.value);
-      this.$emit('input', this.numberValue);
+      this.$emit("input", this.numberValue);
     },
     max() {
       this.numberValue = this.adjustNumber(this.value);
-      this.$emit('input', this.numberValue);
+      this.$emit("input", this.numberValue);
     },
     decimalPlaces() {
       this.numberValue = this.adjustNumber(this.value);
-      this.$emit('input', this.numberValue);
+      this.$emit("input", this.numberValue);
     },
     format() {
       this.numberValue = this.adjustNumber(this.value);
@@ -124,27 +90,18 @@ export default Vue.extend({
   },
   mounted() {
     this.numberValue = this.adjustNumber(this.value);
-    this.$emit('input', this.numberValue);
+    this.$emit("input", this.numberValue);
   },
   methods: {
     adjustNumber(num: number) {
-      let adustedNumber = Number(num.toFixed(this.decimalPlaces));
-      const minimum = Number(this.min);
-      const maximum = Number(this.max);
-
-      if (Number.isNaN(adustedNumber)) adustedNumber = minimum;
-
-      if (num < minimum) adustedNumber = minimum;
-      if (num > maximum) adustedNumber = maximum;
-
-      return adustedNumber;
+      return methods.adjustNumber(num, this.decimalPlaces, this.min, this.max);
     },
     toggleEdit(value: boolean) {
       this.editing = value;
     },
     handleChange(e: string) {
       this.numberValue = this.adjustNumber(Number(e));
-      this.$emit('input', this.numberValue);
+      this.$emit("input", this.numberValue);
     },
     handleKeyUp(e: any) {
       const { keyCode } = e;
