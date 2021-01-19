@@ -12,48 +12,27 @@ A numeric field component built from [Vuetify's](https://vuetifyjs.com/en/) [`v-
 
 ### Global
 
-Importing the source `.vue` file (note: The [`numeral`](https://www.npmjs.com/package/numeral) package may also need to be installed):
+Note: The [`numeral`](https://www.npmjs.com/package/numeral) package may also need to be installed.
 
 ```js
-// main.js
-import VNumberField from "flexerant-vuetify-number-field/src/components/VNumberField";
+import Vue from "vue";
+import VNumberField from "flexerant-vuetify-number-field";
 
 Vue.use(VNumberField);
-```
-
-Importing the bundled `.js`:
-
-```js
-// main.js
-import { VNumberField } from "flexerant-vuetify-number-field";
-
-Vue.use(VNumberField);
+Vue.component("v-number-field", VNumberField);
 ```
 
 ### In-Component Import
 
-Importing the source `.vue` file (note: The [`numeral`](https://www.npmjs.com/package/numeral) package may also need to be installed):
+Note: The [`numeral`](https://www.npmjs.com/package/numeral) package may also need to be installed.
 
 ```js
 // component.vue
-import VNumberField from "flexerant-vuetify-number-field/src/components/VNumberField";
+import VNumberField from "flexerant-vuetify-number-field";
 
 export default {
   components: {
-    VNumberField,
-  },
-};
-```
-
-Importing the bundled `.js`:
-
-```js
-// component.vue
-import { VNumberField } from "flexerant-vuetify-number-field";
-
-export default {
-  components: {
-    VNumberField,
+    "v-number-field": VNumberField,
   },
 };
 ```
