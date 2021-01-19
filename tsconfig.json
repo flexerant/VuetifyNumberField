@@ -3,29 +3,22 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
-    "jsx": "preserve",
+    "declaration": true,
+    "declarationDir": "dist",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "importHelpers": true,
     "moduleResolution": "node",
-    "allowJs": true,
-    "skipLibCheck": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "vuetify", "jest"],
+    "types": ["node", "vue", "vuetify"],
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "declaration": true,
-    "declarationDir": "dist"
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
