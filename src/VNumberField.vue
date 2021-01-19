@@ -31,7 +31,7 @@
 import Vue from "vue";
 import * as localization from "@/utils/localizations";
 import { VTextField } from "vuetify/lib";
-import useMethods, { Format } from "./VNumberField.vue.methods";
+import useMethods, { Format } from "@/VNumberField.vue.methods";
 
 const methods = useMethods();
 
