@@ -74,7 +74,7 @@
         </v-row>
         <v-row class="text-center">
           <v-col cols="8" offset="2">
-            <VNumberField
+            <v-number-field
               v-model="number"
               :format="format"
               :min="min"
@@ -95,14 +95,14 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import VNumberField from '@/v-number-field.vue';
+import Vue from "vue";
+import VNumberField from "@/v-number-field.vue";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
 
   components: {
-    VNumberField,
+    "v-number-field": VNumberField,
   },
 
   data: () => ({
@@ -111,10 +111,10 @@ export default Vue.extend({
     max: 5000,
     number: 1,
     decimalPlaces: 2,
-    locales: ['en-CA', 'en-US', 'fr-CA', 'de'],
-    locale: 'en-CA',
-    formats: ['none', 'currency', 'percent'],
-    format: 'none',
+    locales: ["en-CA", "en-US", "fr-CA", "de"],
+    locale: "en-CA",
+    formats: ["none", "currency", "percent"],
+    format: "none",
   }),
   methods: {
     handleLocaleChange() {
