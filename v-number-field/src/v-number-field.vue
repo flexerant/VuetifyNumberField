@@ -1,6 +1,6 @@
 <template>
   <span>
-    <v-text-field
+    <VTextField
       v-if="!editing"
       v-bind="this.$attrs"
       :value="textValue"
@@ -10,7 +10,7 @@
       type="text"
       @mousedown="toggleEdit(true)"
     />
-    <v-text-field
+    <VTextField
       v-if="editing"
       ref="input"
       v-bind="this.$attrs"
@@ -29,11 +29,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-// import VTextField from 'vuetify/lib/components/VTextField';
+import { VTextField } from 'vuetify/lib';
 import * as localization from '@/utils/localizations';
 
 export default Vue.extend({
-  // components: { VTextField },
+  components: { VTextField },
   props: {
     locale: { type: String, default: 'en' },
     value: { type: Number, required: true },
