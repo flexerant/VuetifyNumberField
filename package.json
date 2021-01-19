@@ -5,7 +5,7 @@
   "description": "A vuetify based numeric field component.",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name flexerant-vuetify-number-field src/index.js",
+    "build": "vue-cli-service build --target lib --name flexerant-vuetify-number-field src/index.ts",
     "lint": "vue-cli-service lint --fix",
     "test": "vue-cli-service test:unit"
   },
@@ -13,12 +13,13 @@
   "browser": "dist/flexerant-vuetify-number-field.umd.min.js",
   "unpkg": "dist/flexerant-vuetify-number-field.umd.min.js",
   "files": [
-    "src/components",
-    "src/utils",
+    "src/components/*",
+    "src/utils/*",
     "dist",
     "LICENSE",
     "README.md"
   ],
+  "typings": "./dist/src/index.d.ts",
   "dependencies": {
     "numeral": "^2.0.6",
     "vue": "^2.6.11",
