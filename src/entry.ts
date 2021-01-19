@@ -1,7 +1,7 @@
 import _Vue, { PluginFunction, VueConstructor } from "vue";
 
 // Import vue component
-import component from "@/v-number-field.vue";
+import component from "@/VNumberField.vue";
 
 // Define typescript interfaces for autoinstaller
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

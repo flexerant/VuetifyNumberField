@@ -96,7 +96,7 @@
 
 <script>
 import Vue from "vue";
-import VNumberField from "@/v-number-field.vue";
+import VNumberField from "@/VNumberField.vue";
 
 export default Vue.extend({
   name: "App",
