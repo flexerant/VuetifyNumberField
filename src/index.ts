@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
+// import Vuetify from 'vuetify/lib';
 import VNumberField from './components/VNumberField.vue';
 
-Vue.use(Vuetify);
+// Vue.use(Vuetify);
 
 const Components = { VNumberField };
 
